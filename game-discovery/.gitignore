@@ -1,25 +1,4 @@
-Skip to content
- 
-Search Gists
-Search...
-All gists
-Back to GitHub
-@andreasonny83
-andreasonny83/.gitignore
-Last active 9 hours ago • Report abuse
-Code
-Revisions
-6
-Stars
-198
-Forks
-55
-Clone this repository at &lt;script src=&quot;https://gist.github.com/andreasonny83/b24e38b7772a3ea362d8e8d238d5a7bc.js&quot;&gt;&lt;/script&gt;
-<script src="https://gist.github.com/andreasonny83/b24e38b7772a3ea362d8e8d238d5a7bc.js"></script>
-Gitignore template for JavaScript projects
-.gitignore
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
+/node_modules
 # compiled output
 /dist
 /tmp
@@ -79,7 +58,7 @@ yarn-error.log*
 
 
 # Dependency directories
-node_modules/
+
 jspm_packages/
 
 # Optional npm cache directory
