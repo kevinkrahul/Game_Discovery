@@ -1,11 +1,15 @@
 import { Button, Show } from "@chakra-ui/react";
 import { Grid, GridItem,useBreakpointValue } from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+
+
+
 const App = () => {
 
   const showAside=useBreakpointValue({base:false,sm:true});
 
   return (
-    <div>
+    <>
       <Grid
         templateAreas={{
           base: `"nav" "main"`,
@@ -13,8 +17,8 @@ const App = () => {
           lg: `"nav nav" "aside main"`,
         }}
       >
-        <GridItem area="nav" bg="red">
-          Nav
+        <GridItem area="nav">
+          <NavBar />
         </GridItem>
         { showAside && <GridItem area="aside" bg="gold">
             Aside
@@ -23,7 +27,7 @@ const App = () => {
           Main
         </GridItem>
       </Grid>
-    </div>
+    </>
   );
 };
 
