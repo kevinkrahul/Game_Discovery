@@ -1,9 +1,10 @@
-import { Button, Show } from "@chakra-ui/react";
-import { Grid, GridItem,useBreakpointValue } from "@chakra-ui/react";
+import {  Grid, GridItem,useBreakpointValue } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
+import { Button, ButtonGroup } from '@chakra-ui/react'
 
 
 
+ 
 const App = () => {
 
   const showAside=useBreakpointValue({base:false,sm:true});
@@ -29,6 +30,7 @@ const App = () => {
       </Grid>
     </>
   );
+  
 };
 
 export default App;
