@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import apiClient from "../Services/api-client";
 import { CanceledError } from "axios";
+import { color } from "@chakra-ui/react";
 
 export interface Platform{
   id:number;
@@ -26,23 +27,27 @@ const useGames = () => {
 
   const [Games, SetGames] = useState<Game[]>([]);
   const [error, SetError] = useState("");
+  const [isLoading,setLoading]=useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
-
+    setLoading(true);
     apiClient
       .get<FetchGameResponce>("/games",{signal:controller.signal})
-      .then((res) => SetGames(res.data.results))
+      .then((res) => {
+        SetGames(res.data.results);
+      setLoading(false);})
       .catch((err) => {
         if(err instanceof CanceledError) return;
-        SetError(err.message)
+        SetError(err.message);
+        setLoading(false);
       }
     );
 
       return () => controller.abort();
   },[]);
 
-  return {Games,error};
+  return {Games,error,isLoading};
 
 
 };
