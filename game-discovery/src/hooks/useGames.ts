@@ -1,7 +1,4 @@
-import { useState,useEffect } from "react";
-import apiClient from "../Services/api-client";
-import { CanceledError } from "axios";
-import { color } from "@chakra-ui/react";
+import useData from "./useData";
 
 export interface Platform{
   id:number;
@@ -16,39 +13,11 @@ export interface Game {
     metacritic:number;
   }
   
-  interface FetchGameResponce {
-    count: number;
-    results: Game[];
-  }
+  // interface FetchGameResponce {
+  //   count: number;
+  //   results: Game[];
+  // }
 
 
-const useGames = () => {
-
-
-  const [Games, SetGames] = useState<Game[]>([]);
-  const [error, SetError] = useState("");
-  const [isLoading,setLoading]=useState(false);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    setLoading(true);
-    apiClient
-      .get<FetchGameResponce>("/games",{signal:controller.signal})
-      .then((res) => {
-        SetGames(res.data.results);
-      setLoading(false);})
-      .catch((err) => {
-        if(err instanceof CanceledError) return;
-        SetError(err.message);
-        setLoading(false);
-      }
-    );
-
-      return () => controller.abort();
-  },[]);
-
-  return {Games,error,isLoading};
-
-
-};
+const useGames = () =>useData<Game>('/games');
 export default useGames;
