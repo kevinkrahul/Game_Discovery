@@ -31,7 +31,8 @@ const useGames = (
       params: {
         genres: gameQuery.Genre?.id,
         platforms: gameQuery.Platform?.id,
-        ordering:gameQuery.sortorder
+        ordering:gameQuery.sortorder,
+        search:gameQuery.searchText
       },
     },
     // [selectedGenre?.id, selectedPlatform?.id]
