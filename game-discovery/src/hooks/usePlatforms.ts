@@ -1,5 +1,5 @@
 import useData from "./useData";
-
+// import platform from '../Data/platform'
 interface Platform{
     id:number;
     name:string;
@@ -7,5 +7,8 @@ interface Platform{
 }
 
 const useplatform=()=>useData<Platform>('/platforms/lists/parents')
+
+
+// const useplatform=()=>({data:platform,isLoading:false,error:null});
 
 export default useplatform;
