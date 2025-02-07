@@ -16,10 +16,10 @@ interface Props {
 }
 
 const GenresList = ({ onSelectGenre,selectedGenre }: Props) => {
-  const { data, isLoading } = useGenres();
+  const { data, isLoading,error } = useGenres();
   // const skeleton = Array([1,20]);
   const skeleton = [...Array(15).keys()].map((i) => i + 1);
-
+  if(error) return null;
   return (
     <>
     <Heading marginBottom={3} fontSize='2xl'>Genres</Heading>
